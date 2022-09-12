@@ -1,24 +1,21 @@
-import './App.css';
+import './App.css'
+import CalculatorBody from './components/CalculatorBody'
+import ScreenContainer from './components/ScreenContainer'
+import LogoContainer from './components/LogoContainer'
+import ButtonsContainer from './components/ButtonsContainer'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="calc-container">
+			<CalculatorBody>
+				<div className="internal-container">
+					<ScreenContainer />
+					<LogoContainer />
+					<ButtonsContainer />
+				</div>
+			</CalculatorBody>
+		</div>
+	)
 }
 
-export default App;
+export default App
