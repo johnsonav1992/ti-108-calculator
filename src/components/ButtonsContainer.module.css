@@ -1,5 +1,9 @@
 .buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
-    background-color: #b9c5f8;
+    background-color: #1b4ca8;
 }
