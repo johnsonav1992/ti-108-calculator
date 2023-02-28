@@ -79,9 +79,37 @@ export const mainSectionButtons = [
         , function: 0
     }
     , {
-        label: '.'
+        label: '•'
         , color: 'white'
         , function: '.'
     }
 
+]
+
+export const operandSectionButtons = [
+    {
+        label: '÷'
+        , color: 'red'
+        , function: '/'
+    }
+    , {
+        label: 'x'
+        , color: 'red'
+        , function: '*'
+    }
+    , {
+        label: '+'
+        , color: 'red'
+        , function: '+'
+    }
+    , {
+        label: '-'
+        , color: 'red'
+        , function: '-'
+    }
+    , {
+        label: '='
+        , color: 'red'
+        , function: 'EVALUATE'
+    }
 ]

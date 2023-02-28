@@ -3,7 +3,8 @@ import classes from './ButtonsContainer.module.css'
 import RedBtnSmall from './RedBtnSmall'
 import WhiteBtnSmall from './WhiteBtnSmall'
 import ButtonsInnerContainer from './ButtonsInnerContainer'
-import { mainSectionButtons } from '../data/buttons'
+import { mainSectionButtons, operandSectionButtons } from '../data/buttons'
+import RedBtnLarge from './RedBtnLarge'
 
 const ButtonsContainer = () => {
   return (
@@ -15,6 +16,13 @@ const ButtonsContainer = () => {
             ? <RedBtnSmall key={button.label}>{button.label}</RedBtnSmall>
             : <WhiteBtnSmall key={button.label}>{button.label}</WhiteBtnSmall>
         )}
+        </div>
+        <div className={classes['operands-container']}>
+          { operandSectionButtons.map(button =>
+            button.function !== 'EVALUATE'
+              ? <RedBtnSmall key={button.label}>{button.label}</RedBtnSmall>
+              : <RedBtnLarge key={button.label}>{button.label}</RedBtnLarge>
+          )}
         </div>
       </ButtonsInnerContainer>
     </div>

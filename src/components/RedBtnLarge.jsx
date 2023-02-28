@@ -1,8 +1,11 @@
 import React from 'react'
+import classes from './RedBtnLarge.module.css'
 
-const RedBtnLarge = () => {
+const RedBtnLarge = ({ children }) => {
   return (
-    <div>RedBtnLarge</div>
+    <button className={classes.btn}>
+      <div className={classes.digit}>{ children }</div>
+    </button>
   )
 }
 
