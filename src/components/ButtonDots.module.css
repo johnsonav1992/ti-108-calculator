@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .15rem;
+    margin-top: 1rem;
+}
+
+.red-dot {
+    background-color: rgba(232, 224, 225, 0.288);
+    height: 2px;
+    width: 2px;
+}
