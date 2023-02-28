@@ -1,8 +1,11 @@
 import React from 'react'
+import classes from './WhiteBtnSmall.module.css'
 
-const WhiteBtnSmall = () => {
+const WhiteBtnSmall = ({ children }) => {
   return (
-    <div>WhiteBtnSmall</div>
+    <button className={classes.btn}>
+      <div className={classes.digit}>{ children }</div>
+    </button>
   )
 }
 

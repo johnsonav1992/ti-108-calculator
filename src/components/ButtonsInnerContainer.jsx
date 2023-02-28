@@ -3,7 +3,9 @@ import classes from './ButtonsInnerContainer.module.css'
 
 const ButtonsInnerContainer = ({ children }) => {
   return (
-    <div className={classes.container}>{children}</div>
+    <div className={classes.container}>
+      {children}
+    </div>
   )
 }
 
