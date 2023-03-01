@@ -7,6 +7,8 @@
     height: 2rem;
     box-shadow: 0 0 2px 1px black;
     position: relative;
+    padding: 2px;
+    padding-top: 0;
 }
 
 .btn:hover {
@@ -20,7 +22,6 @@
     font-weight: bold;
     color: #112681;
     position: absolute;
-    top: 3%;
-    left: 15%;
-    padding-top: .1rem;
+    left: 18%;
+    top: 0;
 }

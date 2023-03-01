@@ -1,12 +1,32 @@
 .container {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: .15rem;
+    gap: .19rem;
+    row-gap: .15rem;
+    margin-top: 1rem;
+}
+
+.large {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: .19rem;
+    row-gap: .2rem;
     margin-top: 1rem;
 }
 
 .red-dot {
-    background-color: rgba(232, 224, 225, 0.288);
-    height: 2px;
-    width: 2px;
+    background-color: rgba(255, 255, 255, 0.327);
+    height: 2.5px;
+    width: 2.5px;
+    border-radius: 50%;
+}
+
+
+.white-dot {
+    background-color: rgba(194, 194, 194, 0.327);
+    height: 2.5px;
+    width: 2.5px;
+    border-radius: 50%;
 }
