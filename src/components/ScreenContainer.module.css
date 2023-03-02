@@ -5,6 +5,6 @@
     border-bottom: 2px solid #112681;
     border-top: 2px solid #112681;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
