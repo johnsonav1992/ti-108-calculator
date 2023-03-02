@@ -11,6 +11,10 @@
 }
 
 .btn:hover {
+    cursor: pointer;
+}
+
+.btn:active {
     background-color: #a71813;
     cursor: pointer;
 }

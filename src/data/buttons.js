@@ -93,22 +93,22 @@ export const operandSectionButtons = [
         , function: '/'
     }
     , {
-        label: 'x'
+        label: '×'
         , color: 'red'
         , function: '*'
     }
     , {
-        label: '+'
+        label: '＋'
         , color: 'red'
         , function: '+'
     }
     , {
-        label: '-'
+        label: '－'
         , color: 'red'
         , function: '-'
     }
     , {
-        label: '='
+        label: '＝'
         , color: 'red'
         , function: 'EVALUATE'
     }

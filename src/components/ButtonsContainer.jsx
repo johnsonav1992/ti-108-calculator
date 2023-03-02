@@ -20,7 +20,7 @@ const ButtonsContainer = () => {
         <div className={classes['operands-container']}>
           { operandSectionButtons.map(button =>
             button.function !== 'EVALUATE'
-              ? <RedBtnSmall key={button.label}>{button.label}</RedBtnSmall>
+              ? <RedBtnSmall key={button.label} largeText>{button.label}</RedBtnSmall>
               : <RedBtnLarge key={button.label}>{button.label}</RedBtnLarge>
           )}
         </div>
