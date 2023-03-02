@@ -1,10 +1,10 @@
 import React from 'react'
 import classes from './ButtonsContainer.module.css'
-import RedBtnSmall from './RedBtnSmall'
-import WhiteBtnSmall from './WhiteBtnSmall'
-import ButtonsInnerContainer from './ButtonsInnerContainer'
-import { mainSectionButtons, operandSectionButtons } from '../data/buttons'
-import RedBtnLarge from './RedBtnLarge'
+import RedBtnSmall from '../RedBtnSmall/RedBtnSmall'
+import WhiteBtnSmall from '../WhiteBtnSmall/WhiteBtnSmall'
+import ButtonsInnerContainer from '../ButtonsInnerContainer/ButtonsInnerContainer'
+import { mainSectionButtons, operandSectionButtons } from '../../data/buttons'
+import RedBtnLarge from '../RedBtnLarge/RedBtnLarge'
 
 const ButtonsContainer = () => {
   return (

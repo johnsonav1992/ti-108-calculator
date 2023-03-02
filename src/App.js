@@ -1,8 +1,8 @@
 import './App.css'
-import CalculatorBody from './components/CalculatorBody'
-import ScreenContainer from './components/ScreenContainer'
-import LogoContainer from './components/LogoContainer'
-import ButtonsContainer from './components/ButtonsContainer'
+import CalculatorBody from './components/CalculatorBody/CalculatorBody'
+import ScreenContainer from './components/ScreenContainer/ScreenContainer'
+import LogoContainer from './components/LogoContainer/LogoContainer'
+import ButtonsContainer from './components/ButtonsContainer/ButtonsContainer'
 
 function App() {
 	return (

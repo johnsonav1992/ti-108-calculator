@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonDots from './ButtonDots'
+import ButtonDots from '../ButtonDots/ButtonDots'
 import classes from './WhiteBtnSmall.module.css'
 
 const WhiteBtnSmall = ({ children }) => {

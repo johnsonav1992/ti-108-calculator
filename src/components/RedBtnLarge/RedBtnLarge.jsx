@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonDots from './ButtonDots'
+import ButtonDots from '../ButtonDots/ButtonDots'
 import classes from './RedBtnLarge.module.css'
 
 const RedBtnLarge = ({ children }) => {
