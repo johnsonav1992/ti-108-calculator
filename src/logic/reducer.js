@@ -2,6 +2,7 @@ import { ACTIONS } from "./actions"
 import { evaluate } from "./evaluate"
 
 export function reducer(state, { type, payload }) {
+    console.log( { type, payload } )
     // eslint-disable-next-line default-case
     switch (type) {
         case ACTIONS.INPUT_DIGIT:
@@ -45,21 +46,6 @@ export function reducer(state, { type, payload }) {
                 currentOperand: null,
             }
         case ACTIONS.CLEAR: return {}
-        case ACTIONS.DELETE_DIGIT:
-            if (state.overwrite) {
-                return {
-                    ...state,
-                    overwrite: false,
-                    currentOperand: null,
-                }
-            }
-            if (state.currentOperand == null) return state
-            if (state.currentOperand.length === 1) return { ...state, currentOperand: null }
-    
-            return {
-                ...state,
-                currentOperand: state.currentOperand.slice(0, -1),
-            }
         case ACTIONS.EVALUATE:
             if (
                 state.operation == null ||

@@ -1,3 +1,5 @@
+import { ACTIONS } from "../logic/actions"
+
 export const mainSectionButtons = [
     {
         label: '+/-'
@@ -6,6 +8,7 @@ export const mainSectionButtons = [
     , {
         label: '√'
         , color: 'red'
+        , action: ACTIONS.CHOOSE_OPERATION
     }
     , {
         label: '%'
@@ -26,62 +29,62 @@ export const mainSectionButtons = [
     , {
         label: '7'
         , color: 'white'
-        , function: 7
+        , action: ACTIONS.INPUT_DIGIT
     }
     , {
         label: '8'
         , color: 'white'
-        , function: 8
+        , action: ACTIONS.INPUT_DIGIT
     }
     , {
         label: '9'
         , color: 'white'
-        , function: 9
+        , action: ACTIONS.INPUT_DIGIT
     }
     , {
         label: '4'
         , color: 'white'
-        , function: 4
+        , action: ACTIONS.INPUT_DIGIT
     }
     , {
         label: '5'
         , color: 'white'
-        , function: 5
+        , action: ACTIONS.INPUT_DIGIT
     }
     , {
         label: '6'
         , color: 'white'
-        , function: 6
+        , action: ACTIONS.INPUT_DIGIT
     }
     , {
         label: '1'
         , color: 'white'
-        , function: 1
+        , action: ACTIONS.INPUT_DIGIT
     }
     , {
         label: '2'
         , color: 'white'
-        , function: 2
+        , action: ACTIONS.INPUT_DIGIT
     }
     , {
         label: '3'
         , color: 'white'
-        , function: 3
+        , action: ACTIONS.INPUT_DIGIT
     }
     , {
         label: 'ON/C'
         , color: 'red'
-        , function: 'CLEAR'
+        , action: ACTIONS.CLEAR
     }
     , {
         label: '0'
         , color: 'white'
-        , function: 0
+        , action: ACTIONS.INPUT_DIGIT
     }
     , {
-        label: '•'
+        label: '.'
         , color: 'white'
-        , function: '.'
+        , action: ACTIONS.INPUT_DIGIT
     }
 
 ]
@@ -90,26 +93,26 @@ export const operandSectionButtons = [
     {
         label: '÷'
         , color: 'red'
-        , function: '/'
+        , action: ACTIONS.CHOOSE_OPERATION
     }
     , {
-        label: '×'
+        label: 'x'
         , color: 'red'
-        , function: '*'
+        , action: ACTIONS.CHOOSE_OPERATION
     }
     , {
-        label: '＋'
+        label: '+'
         , color: 'red'
-        , function: '+'
+        , action: ACTIONS.CHOOSE_OPERATION
     }
     , {
-        label: '－'
+        label: '-'
         , color: 'red'
-        , function: '-'
+        , action: ACTIONS.CHOOSE_OPERATION
     }
     , {
-        label: '＝'
+        label: '='
         , color: 'red'
-        , function: 'EVALUATE'
+        , action: ACTIONS.EVALUATE
     }
 ]
