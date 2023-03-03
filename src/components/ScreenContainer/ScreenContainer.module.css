@@ -4,7 +4,9 @@
     background-color: #1b4ca8;
     border-bottom: 2px solid #112681;
     border-top: 2px solid #112681;
+    border-left: 1px solid #1b4ca8;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 3;
 }

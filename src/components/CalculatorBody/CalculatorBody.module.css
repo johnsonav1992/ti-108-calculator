@@ -1,11 +1,14 @@
 .calc-body {
 	background-color: #1b4ca8;
-	width: 324px;
+	width: 312px;
 	height: 550px;
 	border-radius: 0.35rem;
 	border-bottom-right-radius: 1.5rem;
 	border-bottom-left-radius: 1.5rem;
+	border-left: 3px solid rgba(255, 255, 255, 0.334);
+	border-top: 3px solid rgba(0, 0, 0, 0.159);
 	display: flex;
 	align-items: center;
-	box-shadow: 0 0 15px black;
+	box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.831);
+	z-index: -1;
 }
