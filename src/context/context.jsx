@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import { reducer } from "../../logic/reducer";
+import { reducer } from "../logic/reducer";
 
 export const calcContext = createContext( {
     currentOperand: null

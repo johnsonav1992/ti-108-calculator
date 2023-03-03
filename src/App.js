@@ -3,7 +3,7 @@ import CalculatorBody from './components/CalculatorBody/CalculatorBody'
 import ScreenContainer from './components/ScreenContainer/ScreenContainer'
 import LogoContainer from './components/LogoContainer/LogoContainer'
 import ButtonsContainer from './components/ButtonsContainer/ButtonsContainer'
-import ContextProvider from './components/context/context'
+import ContextProvider from './context/context'
 
 function App() {
 	
