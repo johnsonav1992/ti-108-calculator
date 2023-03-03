@@ -20,6 +20,7 @@ export function reducer(state, { type, payload }) {
                 ...state,
                 currentOperand: `${state.currentOperand || ""}${payload.digit}`
             }
+
         case ACTIONS.CHOOSE_OPERATION:
             if (state.currentOperand == null && state.previousOperand == null) return state
     
@@ -45,7 +46,9 @@ export function reducer(state, { type, payload }) {
                 operation: payload.operation,
                 currentOperand: null,
             }
+
         case ACTIONS.CLEAR: return {}
+        
         case ACTIONS.EVALUATE:
             if (
                 state.operation == null ||
