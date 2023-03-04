@@ -4,6 +4,11 @@
     src: url(../../../public/AmericanTypewriterBQ-Bold.otf);
     font-weight: bold;
 }
+@font-face {
+    font-family: 'Seven Segment';
+    src: url(../../../public/seven-segment.ttf);
+    font-weight: normal;
+}
 
 .logo-container {
     height: 30%;

@@ -1,6 +1,12 @@
 .screen {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: 'Seven Segment';
+    font-size: 3.5rem;
     background-color: #989898;
     width: 75%;
     height: 90%;
+    padding-right: .25rem;
     box-shadow: inset 0 0 10px black;
 }

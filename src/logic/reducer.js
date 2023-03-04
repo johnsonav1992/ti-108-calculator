@@ -2,10 +2,11 @@ import { ACTIONS } from "./actions"
 import { evaluate } from "./evaluate"
 
 export function reducer(state, { type, payload }) {
-    console.log( { type, payload } )
     // eslint-disable-next-line default-case
     switch (type) {
         case ACTIONS.INPUT_DIGIT:
+            if (!state.currentOperand) return state
+
             if (state.overwrite) {
                 return {
                     ...state,
@@ -13,30 +14,25 @@ export function reducer(state, { type, payload }) {
                     overwrite: false,
                 }
             }
-            if (payload.digit === "0" && state.currentOperand === "0") return state
+            if (payload.digit === "0" && state.currentOperand === "0.") return state
             if (payload.digit === "." && state.currentOperand.includes(".")) return state
-    
+
+            if (state.currentOperand.length === 7) return { ...state }
+            
             return {
                 ...state,
-                currentOperand: `${state.currentOperand || ""}${payload.digit}`
+                currentOperand: 
+                    state.currentOperand === "0"
+                        ? `${payload.digit}`
+                        :`${state.currentOperand || ""}${payload.digit}`
             }
 
         case ACTIONS.CHOOSE_OPERATION:
-            if (state.currentOperand == null && state.previousOperand == null) return state
     
-            if (state.currentOperand == null) {
+            if (!state.currentOperand) {
                 return {
                     ...state,
                     operation: payload.operation,
-                }
-            }
-    
-            if (state.previousOperand == null) {
-                return {
-                    ...state,
-                    operation: payload.operation,
-                    previousOperand: state.currentOperand,
-                    currentOperand: null,
                 }
             }
     
@@ -47,7 +43,7 @@ export function reducer(state, { type, payload }) {
                 currentOperand: null,
             }
 
-        case ACTIONS.CLEAR: return {}
+        case ACTIONS.CLEAR: return { currentOperand: "0" }
         
         case ACTIONS.EVALUATE:
             if (

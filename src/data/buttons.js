@@ -75,6 +75,7 @@ export const mainSectionButtons = [
         label: 'ON/C'
         , color: 'red'
         , action: ACTIONS.CLEAR
+        , secondaryAction: ACTIONS.TURN_ON
     }
     , {
         label: '0'

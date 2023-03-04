@@ -1,12 +1,11 @@
 import React, { useContext } from 'react'
 import ButtonDots from '../ButtonDots/ButtonDots'
 import { calcContext } from '../../context/context'
-import { ACTIONS } from '../../logic/actions'
 import classes from './RedBtnSmall.module.css'
+import { ACTIONS } from '../../logic/actions'
 
 const RedBtnSmall = ({ children, action, largeText }) => {
   const { dispatch } = useContext(calcContext);
-  const { INPUT_DIGIT } = ACTIONS;
 
   return (
     <button 
@@ -14,7 +13,10 @@ const RedBtnSmall = ({ children, action, largeText }) => {
       onClick={ () => {
         dispatch( { 
           type: action
-          , payload: { digit: children }
+          , payload: 
+            action === ACTIONS.CHOOSE_OPERATION
+              ? { operation: children }
+              : { digit: children }
         } )
       } }
     >
