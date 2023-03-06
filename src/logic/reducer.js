@@ -15,16 +15,28 @@ export function reducer(state, { type, payload }) {
                 }
             }
             if (payload.digit === "0" && state.currentOperand === "0.") return state
-            if (payload.digit === "." && state.currentOperand.includes(".")) return state
-
+            if (payload.digit === "." && state.currentOperand.includes(".")) {
+                return {
+                    ...state
+                    , decimalClicked: true
+                }
+            }
+            
             if (state.currentOperand.length === 7) return { ...state }
+
+            if(state.currentOperand.includes('.') && state.decimalClicked) {
+                return {
+                    ...state
+                    , currentOperand: `${state.currentOperand}${payload.digit}`
+                }
+            }
             
             return {
                 ...state,
                 currentOperand: 
-                    state.currentOperand === "0"
-                        ? `${payload.digit}`
-                        :`${state.currentOperand || ""}${payload.digit}`
+                    state.currentOperand === "0."
+                        ? `${payload.digit}.`
+                        :`${state.currentOperand.slice(0, -1) || ""}${payload.digit}.`
             }
 
         case ACTIONS.CHOOSE_OPERATION:
@@ -43,7 +55,7 @@ export function reducer(state, { type, payload }) {
                 currentOperand: null,
             }
 
-        case ACTIONS.CLEAR: return { currentOperand: "0" }
+        case ACTIONS.CLEAR: return { currentOperand: "0." }
         
         case ACTIONS.EVALUATE:
             if (
