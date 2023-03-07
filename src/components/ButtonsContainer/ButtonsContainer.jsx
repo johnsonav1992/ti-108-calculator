@@ -33,7 +33,7 @@ const ButtonsContainer = () => {
           { operandSectionButtons.map(button =>
             button.action !== ACTIONS.EVALUATE
               ? <RedBtnSmall key={button.label} largeText action={ button.action }>{button.label}</RedBtnSmall>
-              : <RedBtnLarge key={button.label} action={ button.action}>{button.label}</RedBtnLarge>
+              : <RedBtnLarge key={button.label} action={ button.action }>{button.label}</RedBtnLarge>
           )}
         </div>
       </ButtonsInnerContainer>

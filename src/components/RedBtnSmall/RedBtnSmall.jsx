@@ -10,7 +10,7 @@ const RedBtnSmall = ({ children, action, largeText }) => {
   return (
     <button 
       className={classes.btn}
-      onClick={ () => {
+      onClick={ () =>
         dispatch( { 
           type: action
           , payload: 
@@ -18,7 +18,7 @@ const RedBtnSmall = ({ children, action, largeText }) => {
               ? { operation: children }
               : { digit: children }
         } )
-      } }
+      }
     >
       <div className={
         largeText
