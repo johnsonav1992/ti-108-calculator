@@ -1,8 +1,8 @@
 export function evaluate({ currentOperand, previousOperand, operation }) {
     const prev = parseFloat(previousOperand)
     const current = parseFloat(currentOperand)
-    console.log({prev}, {current})
     if (isNaN(prev) || isNaN(current)) return ""
+    
     let computation = ""
     // eslint-disable-next-line default-case
     switch (operation) {
@@ -12,7 +12,7 @@ export function evaluate({ currentOperand, previousOperand, operation }) {
       case "-":
         computation = prev - current
         break
-      case "*":
+      case "x":
         computation = prev * current
         break
       case "÷":
@@ -20,5 +20,7 @@ export function evaluate({ currentOperand, previousOperand, operation }) {
         break
     }
   
-    return `${computation.toString()}.`
+    return computation.toString().includes('.') 
+              ? computation.toString() 
+              : `${computation.toString()}.`
   }
