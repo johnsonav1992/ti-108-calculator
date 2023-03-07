@@ -6,14 +6,20 @@ export function reducer(state, { type, payload }) {
     switch (type) {
         case ACTIONS.INPUT_DIGIT:
             // Edge cases
-            if (!state.currentOperand) return state
+            if (!state.currentOperand) {
+                alert('Turn the calculator on first!')
+                return state
+            }
             if (state.currentOperand.length === 7) return { ...state }
 
             // After an evaluation - overwrite
             if (state.overwrite) {
                 return {
                     ...state,
-                    currentOperand: `${payload.digit}.`
+                    currentOperand: 
+                        !state.operationChosen 
+                            ? `${payload.digit}.` 
+                            : `${state.currentOperand.slice(0, -1) || ""}${payload.digit}.`
                     , overwrite: false
                 }
             }
@@ -39,9 +45,9 @@ export function reducer(state, { type, payload }) {
             return {
                 ...state,
                 currentOperand: 
-                    state.currentOperand === "0." || state.operationChosen
+                    (state.currentOperand === "0." || state.operationChosen)
                         ? `${payload.digit}.`
-                        :`${state.currentOperand.slice(0, -1) || ""}${payload.digit}.`
+                        : `${state.currentOperand.slice(0, -1) || ""}${payload.digit}.`
             }
 
         case ACTIONS.CHOOSE_OPERATION:
@@ -81,6 +87,7 @@ export function reducer(state, { type, payload }) {
                 overwrite: true,
                 previousOperand: null,
                 operation: null,
+                operationChosen: null,
                 currentOperand: evaluate(state)
             }
     }

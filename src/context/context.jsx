@@ -5,6 +5,8 @@ export const calcContext = createContext( {
     currentOperand: null
     , previousOperand: null
     , operation: null
+    , overwrite: null
+    , operationChosen: null
     , dispatch: () => {}
 } );
 
@@ -13,6 +15,8 @@ const ContextProvider = ({ children }) => {
 		currentOperand
 		, previousOperand
 		, operation
+        , operationChosen
+        , overwrite
 	}, dispatch] = useReducer(reducer, {})
 
     return (
@@ -20,6 +24,8 @@ const ContextProvider = ({ children }) => {
             currentOperand
             , previousOperand
             , operation
+            , operationChosen
+            , overwrite
             , dispatch
         }}>
             {children}
