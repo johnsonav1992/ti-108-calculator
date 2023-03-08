@@ -16,10 +16,7 @@ export function reducer(state, { type, payload }) {
             if (state.overwrite) {
                 return {
                     ...state,
-                    currentOperand: 
-                        !state.operationChosen 
-                            ? `${payload.digit}.` 
-                            : `${state.currentOperand.slice(0, -1) || ""}${payload.digit}.`
+                    currentOperand: `${payload.digit}.`
                     , overwrite: false
                 }
             }
@@ -40,12 +37,25 @@ export function reducer(state, { type, payload }) {
                     , currentOperand: `${state.currentOperand}${payload.digit}`
                 }
             }
+
+            // After operation chosen
+            if (state.operationChosen) {
+                return {
+                    ...state
+                    , currentOperand: 
+                        state.currentOperand === "0."
+                            ? `${payload.digit}.`
+                            : state.currentOperand !== "0." && state.currentOperand !== state.previousOperand
+                                ? `${state.currentOperand.slice(0, -1) || ""}${payload.digit}.`
+                                : `${payload.digit}.`
+                }
+            }
             
-            // Default input digit / if operation has been chosen
+            // Default input digit
             return {
                 ...state,
-                currentOperand: 
-                    (state.currentOperand === "0." || state.operationChosen)
+                currentOperand:
+                    state.currentOperand === "0."
                         ? `${payload.digit}.`
                         : `${state.currentOperand.slice(0, -1) || ""}${payload.digit}.`
             }
