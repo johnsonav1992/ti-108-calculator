@@ -9,6 +9,11 @@
     src: url(../../../public/seven-segment.ttf);
     font-weight: normal;
 }
+@font-face {
+    font-family: 'Days One';
+    src: url(../../../public/DaysOne-Regular.ttf);
+    font-weight: normal;
+}
 
 .logo-container {
     height: 30%;

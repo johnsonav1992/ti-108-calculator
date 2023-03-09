@@ -102,12 +102,12 @@ export const operandSectionButtons = [
         , action: ACTIONS.CHOOSE_OPERATION
     }
     , {
-        label: '+'
+        label: '-'
         , color: 'red'
         , action: ACTIONS.CHOOSE_OPERATION
     }
     , {
-        label: '-'
+        label: '+'
         , color: 'red'
         , action: ACTIONS.CHOOSE_OPERATION
     }

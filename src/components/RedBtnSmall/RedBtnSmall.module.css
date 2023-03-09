@@ -20,18 +20,17 @@
 }
 
 .digit {
-    font-family: sans-serif;
+    font-family: 'Days One';
     font-size: .8rem;
-    font-weight: bold;
     letter-spacing: 1.5px;
     color: white;
     position: absolute;
-    left: 18%;
+    left: 12%;
     top: 0;
 }
 
 .large-digit {
-    font-family: sans-serif;
+    font-family: 'Days One';
     font-size: 1.1rem;
     color: white;
     position: absolute;

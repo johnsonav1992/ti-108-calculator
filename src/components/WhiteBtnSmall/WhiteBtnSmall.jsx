@@ -16,7 +16,7 @@ const WhiteBtnSmall = ({ children, action }) => {
         } )
       } }
     >
-      <div className={classes.digit}>{ children }</div>
+      <div className={ children === '.' ? classes.dot : classes.digit}>{ children }</div>
       <ButtonDots 
         dotNumber={27}
         color='white'
