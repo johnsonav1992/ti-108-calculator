@@ -1,9 +1,13 @@
 .container {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     width: 12%;
-    gap: .12rem;
+    height: 100%;
+    margin-bottom: .4rem;
+    margin-top: .4rem;
+    gap: .07rem;
 }
 
 .dot {
