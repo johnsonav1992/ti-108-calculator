@@ -10,7 +10,7 @@ export function reducer(state, { type, payload }) {
                 alert('Turn the calculator on first!')
                 return state
             }
-            if (state.currentOperand.length === 7) return { ...state }
+            if (state.currentOperand.length === 9) return { ...state }
 
             // After an evaluation - overwrite
             if (state.overwrite) {
