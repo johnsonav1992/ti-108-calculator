@@ -68,13 +68,6 @@ export function reducer(state, { type, payload }) {
                     operation: payload.operation,
                 }
             }
-    
-            // return {
-            //     ...state,
-            //     previousOperand: evaluate(state),
-            //     operation: payload.operation,
-            //     currentOperand: null,
-            // }
 
             return {
                 ...state
