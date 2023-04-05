@@ -10,7 +10,6 @@ import { useContext } from 'react'
 import { calcContext } from '../../context/context'
 
 const ButtonsContainer = () => {
-  const state = useContext(calcContext)
 
   return (
     <div className={classes['buttons-container']}>
