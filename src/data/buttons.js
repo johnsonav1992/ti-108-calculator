@@ -4,27 +4,32 @@ export const mainSectionButtons = [
     {
         label: '+/-'
         , color: 'red'
+        , action: ACTIONS.SPECIALTY
     }
     , {
         label: '√'
         , color: 'red'
-        , action: ACTIONS.CHOOSE_OPERATION
+        , action: ACTIONS.SPECIALTY
     }
     , {
         label: '%'
         , color: 'red'
+        , action: ACTIONS.SPECIALTY
     }
     , {
         label: 'MRC'
         , color: 'red'
+        , action: ACTIONS.SPECIALTY
     }
     , {
         label: 'M-'
         , color: 'red'
+        , action: ACTIONS.SPECIALTY
     }
     , {
         label: 'M+'
         , color: 'red'
+        , action: ACTIONS.SPECIALTY
     }
     , {
         label: '7'

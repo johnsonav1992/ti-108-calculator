@@ -3,4 +3,5 @@ export const ACTIONS = {
     , CHOOSE_OPERATION: 'choose-operation'
     , CLEAR: 'clear'
     , EVALUATE: 'evaluate'
+    , SPECIALTY: 'specialty'
 }
