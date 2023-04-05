@@ -6,8 +6,6 @@ import { ACTIONS } from '../../logic/actions'
 import ButtonsInnerContainer from '../ButtonsInnerContainer/ButtonsInnerContainer'
 import { mainSectionButtons, operandSectionButtons } from '../../data/buttons'
 import RedBtnLarge from '../RedBtnLarge/RedBtnLarge'
-import { useContext } from 'react'
-import { calcContext } from '../../context/context'
 
 const ButtonsContainer = () => {
 
