@@ -111,10 +111,14 @@ export function reducer(state, { type, payload }) {
         
         case ACTIONS.SPECIALTY: 
 
+            // +/- toggle
             if (payload.digit === '+/-') {
+                if (state.currentOperand === '0.') return { ...state }
+
                 const convertedNumber = (state.currentOperand.startsWith("-")) 
                     ? state.currentOperand.slice(1) 
                     : "-" + state.currentOperand;
+                    
                 return { 
                     ...state, 
                     currentOperand: convertedNumber
