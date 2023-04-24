@@ -32,7 +32,10 @@ export function reducer(state, { type, payload }) {
 
                 if (payload.digit === ".") {
                     return containsDigitsAfterDecimal
-                        ? { ...state }
+                        ? { ...state
+                            , decimalClicked: true 
+                            , currentOperand: "0."
+                        }
                         : {
                             ...state,
                             decimalClicked: true,

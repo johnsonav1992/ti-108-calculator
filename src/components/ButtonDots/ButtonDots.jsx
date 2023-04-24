@@ -13,12 +13,14 @@ const ButtonDots = ({
         : classes.container
       }
     >
-        { [...Array(dotNumber)].map(dot => 
-            <div className={ 
+        { [...Array(dotNumber)].map((dot, i) => 
+            <div 
+              className={ 
               color === 'red' 
                 ? classes['red-dot']
                 : classes['white-dot']
-            }
+              }
+            key={i}
             />
         ) }
     </div>
