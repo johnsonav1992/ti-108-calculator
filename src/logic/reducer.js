@@ -1,3 +1,4 @@
+/* eslint-disable no-fallthrough */
 import { ACTIONS } from "./actions"
 import { evaluate } from "./evaluate"
 
