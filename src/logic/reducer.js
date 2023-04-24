@@ -109,8 +109,18 @@ export function reducer(state, { type, payload }) {
                 , operationChosen: true
             }
         
-        case ACTIONS.SPECIALTY: return state
+        case ACTIONS.SPECIALTY: 
 
+            if (payload.digit === '+/-') {
+                const convertedNumber = (state.currentOperand.startsWith("-")) 
+                    ? state.currentOperand.slice(1) 
+                    : "-" + state.currentOperand;
+                return { 
+                    ...state, 
+                    currentOperand: convertedNumber
+                }
+            }
+        
         case ACTIONS.CLEAR: return { currentOperand: "0." }
         
         case ACTIONS.EVALUATE:
