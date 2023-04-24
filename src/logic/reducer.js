@@ -40,7 +40,6 @@ export function reducer(state, { type, payload }) {
                             ...state,
                             decimalClicked: true,
                             previousOperand: state.currentOperand,
-                            currentOperand: "0."
                         };
                 }
             
@@ -63,8 +62,8 @@ export function reducer(state, { type, payload }) {
                         state.currentOperand === "0."
                         ? `${payload.digit}.`
                         : state.currentOperand !== "0." && state.currentOperand !== state.previousOperand
-                        ? `${state.currentOperand.slice(0, -1) || ""}${payload.digit}.`
-                        : `${payload.digit}.`
+                            ? `${state.currentOperand.slice(0, -1) || ""}${payload.digit}.`
+                            : `${payload.digit}.`
                 };
             }
             
