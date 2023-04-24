@@ -5,7 +5,7 @@ export function reducer(state, { type, payload }) {
     // eslint-disable-next-line default-case
     switch (type) {
         case ACTIONS.INPUT_DIGIT:
-            // Edge cases
+            // Edge cases (calc off or too many digits)
             if (!state.currentOperand) {
                 alert('Turn the calculator on first!')
                 return state
@@ -118,10 +118,24 @@ export function reducer(state, { type, payload }) {
                 const convertedNumber = (state.currentOperand.startsWith("-")) 
                     ? state.currentOperand.slice(1) 
                     : "-" + state.currentOperand;
-                    
+
                 return { 
                     ...state, 
                     currentOperand: convertedNumber
+                }
+            }
+
+            // Square root
+            if (payload.digit === '√') {
+                if (state.currentOperand === '0.') return { ...state }
+
+                return {
+                    ...state
+                    , currentOperand: evaluate({
+                        currentOperand: state.currentOperand
+                        , previousOperand: null
+                        , operation: payload.digit
+                    })
                 }
             }
         
