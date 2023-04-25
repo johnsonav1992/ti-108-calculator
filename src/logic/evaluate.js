@@ -1,39 +1,24 @@
-export function evaluate({ currentOperand, previousOperand, operation }) {
+import { evaluatePercent } from "./utils/evaluatePercent"
+import { evaluateStandard } from "./utils/evaluateStandard"
+import { parseComputation } from "./utils/parseComputation"
+
+export function evaluate({ 
+  currentOperand
+  , previousOperand
+  , operation
+  , percentClicked 
+}) {
     const prev = previousOperand !== null && parseFloat(previousOperand)
     const current = parseFloat(currentOperand)
     if (isNaN(prev) || isNaN(current)) return ""
     
     let computation = ""
-    // eslint-disable-next-line default-case
-    switch (operation) {
-      case "+":
-        computation = prev + current
-        break
-      case "-":
-        computation = prev - current
-        break
-      case "x":
-        computation = prev * current
-        break
-      case "÷":
-        computation = prev / current
-        break
-      case "√":
-        computation = Math.sqrt(current)
-        break
+
+    if (percentClicked) {
+      computation = evaluatePercent(prev, current, operation)
+    } else {
+      computation = evaluateStandard(prev, current, operation)
     }
 
-    computation = computation.toString()
-
-  const decimalIndex = computation.indexOf('.')
-  const numDigitsAfterDecimal = decimalIndex === -1 ? 0 : computation.length - decimalIndex - 1
-  const maxNumDigits = 8 - (decimalIndex === -1 ? 0 : 1)
-
-  if (numDigitsAfterDecimal > maxNumDigits) {
-    computation = parseFloat(computation).toFixed(maxNumDigits)
-  }
-
-  return computation.includes('.')
-    ? computation
-    : `${computation}.`
+    return parseComputation(computation)
   }

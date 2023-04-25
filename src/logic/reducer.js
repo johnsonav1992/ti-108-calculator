@@ -139,6 +139,17 @@ export function reducer(state, { type, payload }) {
                     })
                 }
             }
+
+            // Percent
+            if (payload.digit === '%') {
+                return {
+                    ...state
+                    , currentOperand: evaluate({ 
+                        ...state
+                        , percentClicked: true
+                    })
+                }
+            }
         
         case ACTIONS.CLEAR: return { currentOperand: "0." }
         
