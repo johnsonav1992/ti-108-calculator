@@ -15,7 +15,7 @@ export function reducer(state, { type, payload }) {
             if (state.currentOperand.length === 9 && !state.overwrite) return state
 
             // After an evaluation - overwrite
-            if (state.overwrite && state.operationChosen === null) {
+            if (state.overwrite && !state.operationChosen) {
                 return {
                     ...state,
                     currentOperand: `${payload.digit}.`
@@ -41,7 +41,7 @@ export function reducer(state, { type, payload }) {
                         : {
                             ...state,
                             decimalClicked: true
-                            // , previousOperand: state.currentOperand
+                            , previousOperand: state.currentOperand
                         };
                 }
             
