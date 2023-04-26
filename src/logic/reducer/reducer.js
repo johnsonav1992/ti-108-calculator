@@ -1,72 +1,34 @@
 /* eslint-disable no-fallthrough */
-import { ACTIONS } from "./actions"
-import { evaluate } from "./utils/evaluate"
-import { evaluateMemory } from "./utils/evaluateMemory"
+import { ACTIONS } from "../actions"
+import { evaluate } from "../utils/evaluate"
+import { evaluateMemory } from "../utils/evaluateMemory"
+import { handleCalcIsOff } from "./edgeCases"
+import { handleAfterEvaluation } from "./handleAfterEvaluation"
+import { handleChooseOperation } from "./handleChooseOperation"
+import { handleOperationChosen } from "./handleOperationChosen"
 
 export function reducer(state, { type, payload }) {
     // eslint-disable-next-line default-case
     switch (type) {
         case ACTIONS.INPUT_DIGIT:
-            // Edge cases (calc off or too many digits)
             if (!state.currentOperand) {
-                alert('Turn the calculator on first!')
-                return { ...state }
+                return handleCalcIsOff(state)
             }
-            if (state.currentOperand.length === 9 && !state.overwrite) return state
 
-            // After an evaluation - overwrite
+            if (state.currentOperand.length === 9 && !state.overwrite) {
+                return state
+            }
+
             if (state.overwrite && !state.operationChosen) {
-                return {
-                    ...state,
-                    currentOperand: `${payload.digit}.`
-                    , overwrite: false
-                }
+                return handleAfterEvaluation(state, payload)
             }
             
-            // Zero input
-            if (payload.digit === "0" && state.currentOperand === "0.") return state
+            if (payload.digit === "0" && state.currentOperand === "0.") {
+                return state
+            }
             
-            
-            // After operation chosen
             if (state.operationChosen) {
-                const numberToTest = state.decimalClicked ? state.previousOperand : state.currentOperand;
-                const containsDigitsAfterDecimal = /^\d+\.\d+$/.test(numberToTest);
-
-                if (payload.digit === ".") {
-                    return containsDigitsAfterDecimal
-                        ? { ...state
-                            , decimalClicked: true 
-                            , currentOperand: "0."
-                        }
-                        : {
-                            ...state,
-                            decimalClicked: true
-                            , previousOperand: state.currentOperand
-                        };
-                }
-            
-                const decimal = state.currentOperand.indexOf(".");
-            
-                if (decimal > -1 && state.decimalClicked) {
-                    return {
-                        ...state,
-                        currentOperand:
-                        state.currentOperand.length - decimal <= 8
-                            ? `${state.currentOperand}${payload.digit}`
-                            : state.currentOperand
-                    };
-                }
-            
-                return {
-                    ...state,
-                    decimalClicked: false,
-                    currentOperand:
-                        state.currentOperand === "0."
-                        ? `${payload.digit}.`
-                        : state.currentOperand !== "0." && state.currentOperand !== state.previousOperand
-                            ? `${state.currentOperand.slice(0, -1) || ""}${payload.digit}.`
-                            : `${payload.digit}.`
-                };
+                return handleOperationChosen(state, payload)
             }
             
             // Decimal input
@@ -95,21 +57,7 @@ export function reducer(state, { type, payload }) {
             }
 
         case ACTIONS.CHOOSE_OPERATION:
-    
-            if (!state.currentOperand) {
-                return {
-                    ...state,
-                    operation: payload.operation,
-                }
-            }
-
-            return {
-                ...state
-                , previousOperand: state.currentOperand
-                , decimalClicked: false
-                , operation: payload.operation
-                , operationChosen: true
-            }
+            return handleChooseOperation(state, payload);
         
         case ACTIONS.SPECIALTY: 
 
