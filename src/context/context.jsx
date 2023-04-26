@@ -1,31 +1,23 @@
 import React, { createContext, useReducer } from "react";
 import { reducer } from "../logic/reducer";
 
-export const calcContext = createContext( {
+const initState = {
     currentOperand: null
     , previousOperand: null
     , operation: null
     , overwrite: null
     , operationChosen: null
-    , dispatch: () => {}
-} );
+    , memory: '0.'
+}
+
+export const calcContext = createContext(initState);
 
 const ContextProvider = ({ children }) => {
-    const [{ 
-		currentOperand
-		, previousOperand
-		, operation
-        , operationChosen
-        , overwrite
-	}, dispatch] = useReducer(reducer, {})
+    const [state, dispatch] = useReducer(reducer, initState)
 
     return (
         <calcContext.Provider value={{
-            currentOperand
-            , previousOperand
-            , operation
-            , operationChosen
-            , overwrite
+            ...state
             , dispatch
         }}>
             {children}

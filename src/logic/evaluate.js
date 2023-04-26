@@ -7,6 +7,7 @@ export function evaluate({
   , previousOperand
   , operation
   , percentClicked 
+  , memory
 }) {
     const prev = previousOperand !== null && parseFloat(previousOperand)
     const current = parseFloat(currentOperand)

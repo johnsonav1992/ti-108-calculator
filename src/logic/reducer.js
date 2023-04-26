@@ -9,7 +9,7 @@ export function reducer(state, { type, payload }) {
             // Edge cases (calc off or too many digits)
             if (!state.currentOperand) {
                 alert('Turn the calculator on first!')
-                return state
+                return { ...state }
             }
             if (state.currentOperand.length === 9) return { ...state }
 
@@ -148,10 +148,28 @@ export function reducer(state, { type, payload }) {
                         ...state
                         , percentClicked: true
                     })
+                    , percentClicked: false
+                }
+            }
+
+            // Memory
+            if (payload.digit === 'MRC') {
+                return {
+                    ...state
+                    , currentOperand: state.memory
+                }
+            }
+
+            if (payload.digit === 'M+') {
+                return {
+                    ...state
+                    , currentOperand: evaluate(state)
                 }
             }
         
-        case ACTIONS.CLEAR: return { currentOperand: "0." }
+        case ACTIONS.CLEAR: return { 
+            memory: '0.'
+            , currentOperand: "0." }
         
         case ACTIONS.EVALUATE:
             if (
