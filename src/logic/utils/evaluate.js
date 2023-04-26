@@ -1,6 +1,6 @@
-import { evaluatePercent } from "./utils/evaluatePercent"
-import { evaluateStandard } from "./utils/evaluateStandard"
-import { parseComputation } from "./utils/parseComputation"
+import { evaluatePercent } from "./evaluatePercent"
+import { evaluateStandard } from "./evaluateStandard"
+import { parseComputation } from "./parseComputation"
 
 export function evaluate({ 
   currentOperand

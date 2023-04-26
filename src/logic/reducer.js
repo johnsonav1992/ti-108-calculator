@@ -1,6 +1,7 @@
 /* eslint-disable no-fallthrough */
 import { ACTIONS } from "./actions"
-import { evaluate } from "./evaluate"
+import { evaluate } from "./utils/evaluate"
+import { evaluateMemory } from "./utils/evaluateMemory"
 
 export function reducer(state, { type, payload }) {
     // eslint-disable-next-line default-case
@@ -160,10 +161,10 @@ export function reducer(state, { type, payload }) {
                 }
             }
 
-            if (payload.digit === 'M+') {
+            if (payload.digit === 'M+' || payload.digit === 'M-') {
                 return {
                     ...state
-                    , currentOperand: evaluate(state)
+                    , currentOperand: evaluateMemory(state, payload.digit)
                 }
             }
         
