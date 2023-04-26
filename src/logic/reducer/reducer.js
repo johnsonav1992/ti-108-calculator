@@ -6,41 +6,39 @@ import { handleCalcIsOff } from "./edgeCases"
 import { handleAfterEvaluation } from "./handleAfterEvaluation"
 import { handleChooseOperation } from "./handleChooseOperation"
 import { handleOperationChosen } from "./handleOperationChosen"
+import { createStateCases } from "./stateCases"
 
 export function reducer(state, { type, payload }) {
+    const CASES = createStateCases(state, payload);
+
     // eslint-disable-next-line default-case
     switch (type) {
         case ACTIONS.INPUT_DIGIT:
-            if (!state.currentOperand) {
+
+            if (CASES.NO_CURRENT_OPERAND) {
                 return handleCalcIsOff(state)
             }
 
-            if (state.currentOperand.length === 9 && !state.overwrite) {
-                return state
-            }
+            if (CASES.TOO_MANY_DIGITS) return state
 
-            if (state.overwrite && !state.operationChosen) {
+            if (CASES.AFTER_EVALUATION) {
                 return handleAfterEvaluation(state, payload)
             }
             
-            if (payload.digit === "0" && state.currentOperand === "0.") {
-                return state
-            }
+            if (CASES.ZERO_INPUT) return state
             
-            if (state.operationChosen) {
+            if (CASES.OPERATION_IS_CHOSEN) {
                 return handleOperationChosen(state, payload)
             }
             
-            // Decimal input
-            if (payload.digit === "." && state.currentOperand.includes(".")) {
+            if (CASES.DECIMAL_INPUT) {
                 return {
                     ...state
                     , decimalClicked: true
                 }
             }
 
-            // Input digits after decimal clicked
-            if(state.currentOperand.includes('.') && state.decimalClicked) {
+            if (CASES.DIGIT_INPUT_AFTER_DECIMAL) {
                 return {
                     ...state
                     , currentOperand: `${state.currentOperand}${payload.digit}`
@@ -61,8 +59,7 @@ export function reducer(state, { type, payload }) {
         
         case ACTIONS.SPECIALTY: 
 
-            // +/- toggle
-            if (payload.digit === '+/-') {
+            if (CASES.PLUS_MINUS_TOGGLE_CLICKED) {
                 if (state.currentOperand === '0.') return { ...state }
 
                 const convertedNumber = (state.currentOperand.startsWith("-")) 
@@ -75,8 +72,7 @@ export function reducer(state, { type, payload }) {
                 }
             }
 
-            // Square root
-            if (payload.digit === '√') {
+            if (CASES.SQUARE_ROOT_CLICKED) {
                 if (state.currentOperand === '0.') return { ...state }
 
                 return {
@@ -89,8 +85,7 @@ export function reducer(state, { type, payload }) {
                 }
             }
 
-            // Percent
-            if (payload.digit === '%') {
+            if (CASES.PERCENT_CLICKED) {
                 return {
                     ...state
                     , currentOperand: evaluate({ 
@@ -101,8 +96,7 @@ export function reducer(state, { type, payload }) {
                 }
             }
 
-            // Memory
-            if (payload.digit === 'MRC') {
+            if (CASES.MRC_CLICKED) {
                 if ( state.currentOperand === state.memory) {
                     return {
                         ...state
@@ -116,7 +110,7 @@ export function reducer(state, { type, payload }) {
                 }
             }
 
-            if (payload.digit === 'M+' || payload.digit === 'M-') {
+            if (CASES.M_PLUS_OR_MINUS_CLICKED) {
                 return {
                     ...state
                     , memory: evaluateMemory(state, payload.digit)
