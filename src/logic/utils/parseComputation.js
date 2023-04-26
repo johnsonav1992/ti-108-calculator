@@ -9,7 +9,11 @@ export const parseComputation = (computation) => {
         computation = parseFloat(computation).toFixed(maxNumDigits)
     }
 
-    return computation.includes('.')
-        ? computation
-        : `${computation}.`
+    if (computation.includes('.')) {
+        computation = computation.replace(/0+$/, '').replace(/\.$/, '')
+    } else {
+        computation = `${computation}.`
+    }
+
+    return computation
 }

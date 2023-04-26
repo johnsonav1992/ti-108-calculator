@@ -3,8 +3,8 @@
     justify-content: flex-end;
     align-items: center;
     font-family: 'Seven Segment';
-    font-size: 3.4rem;
-    letter-spacing: -.11rem;
+    font-size: 3.35rem;
+    letter-spacing: -.14rem;
     background-color: #989898;
     width: 80%;
     height: 85%;
@@ -16,4 +16,13 @@
 .negative {
     position: absolute;
     left: 1%;
+}
+
+.memory {
+    font-family: 'Days One';
+    font-size: 1rem;
+    font-weight: bold;
+    position: absolute;
+    left: 4%;
+    top: 2%;
 }

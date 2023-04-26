@@ -12,10 +12,10 @@ export function reducer(state, { type, payload }) {
                 alert('Turn the calculator on first!')
                 return { ...state }
             }
-            if (state.currentOperand.length === 9) return { ...state }
+            if (state.currentOperand.length === 9 && !state.overwrite) return state
 
             // After an evaluation - overwrite
-            if (state.overwrite && !state.operationChosen) {
+            if (state.overwrite && state.operationChosen === null) {
                 return {
                     ...state,
                     currentOperand: `${payload.digit}.`
@@ -40,8 +40,8 @@ export function reducer(state, { type, payload }) {
                         }
                         : {
                             ...state,
-                            decimalClicked: true,
-                            previousOperand: state.currentOperand,
+                            decimalClicked: true
+                            // , previousOperand: state.currentOperand
                         };
                 }
             
@@ -155,16 +155,24 @@ export function reducer(state, { type, payload }) {
 
             // Memory
             if (payload.digit === 'MRC') {
-                return {
-                    ...state
-                    , currentOperand: state.memory
+                if ( state.currentOperand === state.memory) {
+                    return {
+                        ...state
+                        , memory: '0.'
+                    }
+                } else {
+                    return {
+                        ...state
+                        , currentOperand: state.memory
+                    }
                 }
             }
 
             if (payload.digit === 'M+' || payload.digit === 'M-') {
                 return {
                     ...state
-                    , currentOperand: evaluateMemory(state, payload.digit)
+                    , memory: evaluateMemory(state, payload.digit)
+                    , overwrite: true
                 }
             }
         
