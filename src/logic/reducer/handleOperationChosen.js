@@ -3,15 +3,15 @@ export const handleOperationChosen = (state, payload) => {
     const containsDigitsAfterDecimal = /^\d+\.\d+$/.test(numberToTest);
 
     if (payload.digit === ".") {
-        return containsDigitsAfterDecimal
+        return containsDigitsAfterDecimal || state.currentOperand !== 0 
             ? { ...state
                 , decimalClicked: true 
                 , currentOperand: "0."
-            }
+            }      
             : {
                 ...state,
                 decimalClicked: true
-                , previousOperand: state.currentOperand
+                // , previousOperand: 
             };
     }
 
