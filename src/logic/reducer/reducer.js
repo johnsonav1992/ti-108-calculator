@@ -133,6 +133,7 @@ export function reducer(state, { type, payload }) {
                 ...state,
                 overwrite: true,
                 previousOperand: state.currentOperand,
+                operation: null,
                 operationChosen: null,
                 decimalClicked: false,
                 currentOperand: evaluate(state)
