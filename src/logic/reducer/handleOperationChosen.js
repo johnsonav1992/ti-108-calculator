@@ -1,21 +1,19 @@
 export const handleOperationChosen = (state, payload) => {
     const numberToTest = state.decimalClicked ? state.previousOperand : state.currentOperand;
     const containsDigitsAfterDecimal = /^\d+\.\d+$/.test(numberToTest);
+    const decimal = state.currentOperand.indexOf(".");
 
     if (payload.digit === ".") {
-        return containsDigitsAfterDecimal || state.currentOperand !== 0 
+        return containsDigitsAfterDecimal || state.currentOperand === state.previousOperand
             ? { ...state
                 , decimalClicked: true 
                 , currentOperand: "0."
-            }      
-            : {
+            }
+            :{
                 ...state,
                 decimalClicked: true
-                // , previousOperand: 
             };
     }
-
-    const decimal = state.currentOperand.indexOf(".");
 
     if (decimal > -1 && state.decimalClicked) {
         return {
@@ -26,6 +24,7 @@ export const handleOperationChosen = (state, payload) => {
                 : state.currentOperand
         };
     }
+
 
     return {
         ...state,

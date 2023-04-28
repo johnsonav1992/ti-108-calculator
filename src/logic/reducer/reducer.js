@@ -11,13 +11,13 @@ import { createStateCases } from "./stateCases"
 export function reducer(state, { type, payload }) {
     const CASES = createStateCases(state, payload);
 
+    if (CASES.NO_CURRENT_OPERAND && payload.digit !== 'ON/C') {
+        return handleCalcIsOff(state)
+    }
+
     // eslint-disable-next-line default-case
     switch (type) {
         case ACTIONS.INPUT_DIGIT:
-
-            if (CASES.NO_CURRENT_OPERAND) {
-                return handleCalcIsOff(state)
-            }
 
             if (CASES.TOO_MANY_DIGITS) return state
 
