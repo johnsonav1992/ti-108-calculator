@@ -1,19 +1,19 @@
-export const parseComputation = (computation) => {
-    computation = computation.toString()
+export const parseComputation = ( computation ) => {
+    computation = computation.toString();
 
-    const decimalIndex = computation.indexOf('.')
-    const numDigitsAfterDecimal = decimalIndex === -1 ? 0 : computation.length - decimalIndex - 1
-    const maxNumDigits = 8 - (decimalIndex === -1 ? 0 : 1)
+    const decimalIndex = computation.indexOf( '.' );
+    const numDigitsAfterDecimal = decimalIndex === -1 ? 0 : computation.length - decimalIndex - 1;
+    const maxNumDigits = 8 - ( decimalIndex === -1 ? 0 : 1 );
 
-    if (numDigitsAfterDecimal > maxNumDigits) {
-        computation = parseFloat(computation).toFixed(maxNumDigits)
+    if ( numDigitsAfterDecimal > maxNumDigits ) {
+        computation = parseFloat( computation ).toFixed( maxNumDigits );
     }
 
-    if (computation.includes('.')) {
-        computation = computation.replace(/0+$/, '').replace(/\.$/, '')
+    if ( computation.includes( '.' ) ) {
+        computation = computation.replace( /0+$/, '' ).replace( /\.$/, '' );
     } else {
-        computation = `${computation}.`
+        computation = `${ computation }.`;
     }
 
-    return computation
-}
+    return computation;
+};

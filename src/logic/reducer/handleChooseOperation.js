@@ -1,9 +1,9 @@
-export const handleChooseOperation = (state, payload) => {
-    if (!state.currentOperand) {
+export const handleChooseOperation = ( state, payload ) => {
+    if ( !state.currentOperand ) {
         return {
-            ...state,
-            operation: payload.operation,
-        }
+            ...state
+            , operation: payload.operation
+        };
     }
 
     return {
@@ -12,5 +12,5 @@ export const handleChooseOperation = (state, payload) => {
         , decimalClicked: false
         , operation: payload.operation
         , operationChosen: true
-    }
-}
+    };
+};

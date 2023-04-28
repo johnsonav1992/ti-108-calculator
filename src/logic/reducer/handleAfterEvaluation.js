@@ -1,7 +1,7 @@
-export const handleAfterEvaluation = (state, payload) => {
+export const handleAfterEvaluation = ( state, payload ) => {
     return {
-        ...state,
-        currentOperand: `${payload.digit}.`
+        ...state
+        , currentOperand: `${ payload.digit }.`
         , overwrite: false
-    }
-}
+    };
+};

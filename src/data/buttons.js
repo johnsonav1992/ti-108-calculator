@@ -1,4 +1,4 @@
-import { ACTIONS } from "../logic/actions"
+import { ACTIONS } from '../logic/actions';
 
 export const mainSectionButtons = [
     {
@@ -93,7 +93,7 @@ export const mainSectionButtons = [
         , action: ACTIONS.INPUT_DIGIT
     }
 
-]
+];
 
 export const operandSectionButtons = [
     {
@@ -121,4 +121,4 @@ export const operandSectionButtons = [
         , color: 'red'
         , action: ACTIONS.EVALUATE
     }
-]
+];

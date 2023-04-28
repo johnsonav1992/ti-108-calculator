@@ -1,25 +1,25 @@
-import { evaluate } from './evaluate'
+import { evaluate } from './evaluate';
 
-export const evaluateMemory = (state, action) => {
+export const evaluateMemory = ( state, action ) => {
     let result;
 
-    switch(action) {
-        case 'M+': 
-            result = evaluate( { 
+    switch ( action ) {
+        case 'M+':
+            result = evaluate( {
                 previousOperand: state.memory
                 , currentOperand: state.currentOperand
                 , operation: '+'
-            } )
+            } );
             break;
-        case 'M-': 
-            result = evaluate( { 
+        case 'M-':
+            result = evaluate( {
                 previousOperand: state.memory
                 , currentOperand: state.currentOperand
                 , operation: '-'
-            } )
+            } );
             break;
-        default: console.log('hi')
+        default: console.log( 'hi' );
     }
 
     return result;
-}
+};

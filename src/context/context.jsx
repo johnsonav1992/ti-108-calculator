@@ -1,5 +1,5 @@
-import React, { createContext, useReducer } from "react";
-import { reducer } from "../logic/reducer/reducer";
+import React, { createContext, useReducer } from 'react';
+import { reducer } from '../logic/reducer/reducer';
 
 const initState = {
     currentOperand: null
@@ -8,21 +8,22 @@ const initState = {
     , overwrite: null
     , operationChosen: null
     , memory: '0.'
-}
+};
 
-export const calcContext = createContext(initState);
+export const calcContext = createContext( initState );
 
-const ContextProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(reducer, initState)
+const ContextProvider = ( { children } ) => {
+    const [ state, dispatch ] = useReducer( reducer, initState );
 
     return (
-        <calcContext.Provider value={{
+        <calcContext.Provider value={ {
             ...state
             , dispatch
-        }}>
-            {children}
+        } }
+        >
+            { children }
         </calcContext.Provider>
-    )
-}
+    );
+};
 
-export default ContextProvider
+export default ContextProvider;

@@ -4,4 +4,4 @@ export const ACTIONS = {
     , CLEAR: 'clear'
     , EVALUATE: 'evaluate'
     , SPECIALTY: 'specialty'
-}
+};
