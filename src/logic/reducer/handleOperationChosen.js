@@ -25,7 +25,6 @@ export const handleOperationChosen = (state, payload) => {
         };
     }
 
-
     return {
         ...state,
         decimalClicked: false,
