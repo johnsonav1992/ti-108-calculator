@@ -1,4 +1,4 @@
-import React from 'react';
+// Styles
 import classes from './ScreenAreaDots.module.css';
 
 const ScreenAreaDots = () => {

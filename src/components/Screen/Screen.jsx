@@ -1,5 +1,9 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
+
+// Context
 import { calcContext } from '../../context/context';
+
+// Styles
 import classes from './Screen.module.css';
 
 const Screen = () => {

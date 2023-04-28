@@ -1,4 +1,4 @@
-import React from 'react';
+// Styles
 import classes from './ButtonsInnerContainer.module.css';
 
 const ButtonsInnerContainer = ( { children } ) => {

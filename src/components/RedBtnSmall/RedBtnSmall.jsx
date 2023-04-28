@@ -1,10 +1,22 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
+
+// Components
 import ButtonDots from '../ButtonDots/ButtonDots';
+
+// Context
 import { calcContext } from '../../context/context';
-import classes from './RedBtnSmall.module.css';
+
+// Logic
 import { ACTIONS } from '../../logic/actions';
 
-const RedBtnSmall = ( { children, action, largeText } ) => {
+// Styles
+import classes from './RedBtnSmall.module.css';
+
+const RedBtnSmall = ( {
+    children
+    , action
+    , largeText
+} ) => {
     const { dispatch } = useContext( calcContext );
 
     return (

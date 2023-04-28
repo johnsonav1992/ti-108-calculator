@@ -1,13 +1,22 @@
-import classes from './ButtonsContainer.module.css';
-import RedBtnSmall from '../RedBtnSmall/RedBtnSmall';
-import WhiteBtnSmall from '../WhiteBtnSmall/WhiteBtnSmall';
+// Logic
 import { ACTIONS } from '../../logic/actions';
-import ButtonsInnerContainer from '../ButtonsInnerContainer/ButtonsInnerContainer';
-import { mainSectionButtons, operandSectionButtons } from '../../data/buttons';
+
+// Data
+import {
+    mainSectionButtons
+    , operandSectionButtons
+} from '../../data/buttons';
+
+// Components
 import RedBtnLarge from '../RedBtnLarge/RedBtnLarge';
+import ButtonsInnerContainer from '../ButtonsInnerContainer/ButtonsInnerContainer';
+import WhiteBtnSmall from '../WhiteBtnSmall/WhiteBtnSmall';
+import RedBtnSmall from '../RedBtnSmall/RedBtnSmall';
+
+// Styles
+import classes from './ButtonsContainer.module.css';
 
 const ButtonsContainer = () => {
-
     return (
         <div className={ classes[ 'buttons-container' ] }>
             <ButtonsInnerContainer>
