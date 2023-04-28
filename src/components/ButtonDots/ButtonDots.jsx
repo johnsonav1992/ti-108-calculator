@@ -8,7 +8,7 @@ const ButtonDots = ({
 }) => {
   return (
     <div className={ 
-      isLarge 
+      isLarge  
         ? classes.large 
         : classes.container
       }
