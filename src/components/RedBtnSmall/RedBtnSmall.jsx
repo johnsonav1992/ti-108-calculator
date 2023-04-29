@@ -22,6 +22,7 @@ const RedBtnSmall = ( {
     return (
         <button
             className={ classes.btn }
+            data-cy={ `${ children }_button` }
             onClick={ () =>
                 dispatch( {
                     type: action

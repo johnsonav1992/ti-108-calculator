@@ -19,7 +19,10 @@ const Screen = () => {
     const memoryHasValue = parseFloat( memory ) !== 0;
 
     return (
-        <div className={ classes.screen }>
+        <div
+            className={ classes.screen }
+            data-cy='screen'
+        >
             { error
             && (
                 <div className={ classes.error }>
@@ -29,13 +32,13 @@ const Screen = () => {
             { memoryHasValue
             && (
                 <div className={ classes.memory }>
-                  M
+                    M
                 </div>
             ) }
             { isNegative
             && (
                 <div className={ classes.negative }>
-                  -
+                    -
                 </div>
             ) }
             { isNegative
