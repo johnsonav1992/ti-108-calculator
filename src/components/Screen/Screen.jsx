@@ -10,6 +10,7 @@ const Screen = () => {
     const {
         currentOperand
         , memory
+        , error
     } = useContext( calcContext );
 
     const isNegative = parseFloat( currentOperand ) < 0;
@@ -19,6 +20,12 @@ const Screen = () => {
 
     return (
         <div className={ classes.screen }>
+            { error
+            && (
+                <div className={ classes.error }>
+                E
+                </div>
+            ) }
             { memoryHasValue
             && (
                 <div className={ classes.memory }>

@@ -129,6 +129,13 @@ export function reducer ( state, { type, payload } ) {
                 || state.previousOperand == null
             ) return state;
 
+            if ( state.operation === '÷' && state.currentOperand === '0.' ) {
+                return {
+                    ...state
+                    , error: true
+                };
+            }
+
             return {
                 ...state
                 , overwrite: true
