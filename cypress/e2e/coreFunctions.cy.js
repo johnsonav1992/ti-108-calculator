@@ -7,7 +7,7 @@ describe( 'Core Functions', () => {
 
     it( ' turns on the calculator', () => {
         cy.visit( 'http://localhost:3000/' );
-        cy.get( '[data-cy="ON/C_button"' ).click();
-        cy.get( '[data-cy="screen"' ).should( 'contain', '0.' );
+        cy.get( '[data-cy="ON/C_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '0.' );
     } );
 } );
