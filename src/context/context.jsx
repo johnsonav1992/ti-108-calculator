@@ -1,4 +1,9 @@
-import React, { createContext, useReducer } from 'react';
+import {
+    createContext
+    , useReducer
+} from 'react';
+
+// Utils
 import { reducer } from '../logic/reducer/reducer';
 
 const initState = {
