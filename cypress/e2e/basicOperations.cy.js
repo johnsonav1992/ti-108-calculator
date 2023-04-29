@@ -149,4 +149,63 @@ describe( 'Basic Calculations', () => {
         cy.get( '[data-cy="=_button"]' ).click();
         cy.get( '[data-cy="screen"]' ).should( 'contain', '2.55' );
     } );
+
+    it( 'Adds a single-digit and a single-digit/double-float number', () => {
+        cy.get( '[data-cy="2_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '2.' );
+
+        cy.get( '[data-cy="+_button"]' ).click();
+
+        cy.get( '[data-cy="4_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '4.' );
+        cy.get( '[data-cy="._button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '4.' );
+        cy.get( '[data-cy="5_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '4.5' );
+        cy.get( '[data-cy="5_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '4.55' );
+
+        cy.get( '[data-cy="=_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '6.55' );
+    } );
+
+    it( 'Adds a double-digit and a single-digit/single-float number', () => {
+        cy.get( '[data-cy="2_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '2.' );
+        cy.get( '[data-cy="7_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '27.' );
+
+        cy.get( '[data-cy="+_button"]' ).click();
+
+        cy.get( '[data-cy="9_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '9.' );
+        cy.get( '[data-cy="._button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '9.' );
+        cy.get( '[data-cy="8_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '9.8' );
+
+        cy.get( '[data-cy="=_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '36.8' );
+    } );
+
+    it( 'Adds a double-digit and a double-digit/single-float number', () => {
+        cy.get( '[data-cy="2_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '2.' );
+        cy.get( '[data-cy="3_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '23.' );
+
+        cy.get( '[data-cy="+_button"]' ).click();
+
+        cy.get( '[data-cy="4_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '4.' );
+        cy.get( '[data-cy="2_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '42.' );
+        cy.get( '[data-cy="._button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '42.' );
+        cy.get( '[data-cy="6_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '42.6' );
+
+        cy.get( '[data-cy="=_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '65.6' );
+    } );
 } );
