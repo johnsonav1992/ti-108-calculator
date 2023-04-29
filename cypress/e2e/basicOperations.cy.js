@@ -11,8 +11,9 @@ describe( 'Basic Calculations', () => {
         cy.get( '[data-cy="2_button"]' ).click();
         cy.get( '[data-cy="screen"]' ).should( 'contain', '2.' );
         cy.get( '[data-cy="+_button"]' ).click();
-        cy.get( '[data-cy="2_button"]' ).click();
+        cy.get( '[data-cy="1_button"]' ).click();
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '1.' );
         cy.get( '[data-cy="=_button"]' ).click();
-        cy.get( '[data-cy="screen"]' ).should( 'contain', '4.' );
+        cy.get( '[data-cy="screen"]' ).should( 'contain', '3.' );
     } );
 } );
