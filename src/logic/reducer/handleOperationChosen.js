@@ -2,6 +2,8 @@ export const handleOperationChosen = ( state, payload ) => {
     const numberToTest = state.decimalClicked ? state.previousOperand : state.currentOperand;
     const containsDigitsAfterDecimal = /^\d+\.\d+$/.test( numberToTest );
     const decimal = state.currentOperand.indexOf( '.' );
+    const noOperationChosen = !state.operationChosen;
+    const currentOperandIsNotPrevious = state.currentOperand !== '0.' && state.currentOperand !== state.previousOperand;
 
     if ( payload.digit === '.' ) {
         return containsDigitsAfterDecimal || state.currentOperand === state.previousOperand
@@ -31,7 +33,7 @@ export const handleOperationChosen = ( state, payload ) => {
         , currentOperand:
             state.currentOperand === '0.'
                 ? `${ payload.digit }.`
-                : !state.operationChosen || state.currentOperand !== '0.' && state.currentOperand !== state.previousOperand
+                : noOperationChosen || currentOperandIsNotPrevious
                     ? `${ state.currentOperand.slice( 0, -1 ) || '' }${ payload.digit }.`
                     : `${ payload.digit }.`
     };

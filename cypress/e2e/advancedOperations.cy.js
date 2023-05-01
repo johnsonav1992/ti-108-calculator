@@ -43,7 +43,7 @@ describe( 'Advanced Calculations', () => {
         cy.get( '[data-cy="screen"]' ).should( 'contain', '5.' );
     } );
 
-    it( 'Adds three, positive single-digit numbers together', () => {
+    it( 'Adds three, positive single-digit numbers together in a row', () => {
         cy.get( '[data-cy="2_button"]' ).click();
         cy.get( '[data-cy="screen"]' ).should( 'contain', '2.' );
 
@@ -58,7 +58,7 @@ describe( 'Advanced Calculations', () => {
         cy.get( '[data-cy="4_button"]' ).click();
         cy.get( '[data-cy="screen"]' ).should( 'contain', '4.' );
 
-        cy.get( '[data-cy="=_button"]' ).click();
+        cy.get( '[data-cy="+_button"]' ).click();
         cy.get( '[data-cy="screen"]' ).should( 'contain', '9.' );
     } );
 
