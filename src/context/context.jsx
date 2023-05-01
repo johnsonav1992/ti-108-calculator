@@ -10,9 +10,12 @@ const initState = {
     currentOperand: null
     , previousOperand: null
     , operation: null
-    , overwrite: null
-    , operationChosen: null
+    , overwrite: false
+    , operationChosen: false
+    , decimalClicked: false
+    , percentClicked: false
     , memory: '0.'
+    , error: false
 };
 
 export const calcContext = createContext( initState );

@@ -18,7 +18,7 @@ export const evaluatePercent = ( prev, current, operation ) => {
             result = prev / convertedPercentage;
             break;
         default:
-            return '';
+            return result = convertedPercentage;
     }
 
     return result;

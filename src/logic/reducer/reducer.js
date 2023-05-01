@@ -120,7 +120,8 @@ export function reducer ( state, { type, payload } ) {
 
         case ACTIONS.CLEAR:
             return {
-                memory: '0.'
+                ...state
+                , memory: '0.'
                 , currentOperand: '0.'
             };
 
