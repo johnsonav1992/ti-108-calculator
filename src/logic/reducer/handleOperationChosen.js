@@ -31,7 +31,7 @@ export const handleOperationChosen = ( state, payload ) => {
         , currentOperand:
             state.currentOperand === '0.'
                 ? `${ payload.digit }.`
-                : state.currentOperand !== '0.' && state.currentOperand !== state.previousOperand
+                : !state.operationChosen || state.currentOperand !== '0.' && state.currentOperand !== state.previousOperand
                     ? `${ state.currentOperand.slice( 0, -1 ) || '' }${ payload.digit }.`
                     : `${ payload.digit }.`
     };
