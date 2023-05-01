@@ -25,6 +25,5 @@ describe( 'Edge cases', () => {
         cy.get( '[data-cy="=_button"]' ).click();
 
         cy.get( '[data-cy="screen"]' ).should( 'contain', 'E' );
-
     } );
 } );
