@@ -60,7 +60,7 @@ export function reducer ( state, { type, payload } ) {
         case ACTIONS.SPECIALTY:
 
             if ( CASES.PLUS_MINUS_TOGGLE_CLICKED ) {
-                if ( state.currentOperand === '0.' ) return { ...state };
+                if ( state.currentOperand === '0.' ) return state;
 
                 const convertedNumber = ( state.currentOperand.startsWith( '-' ) )
                     ? state.currentOperand.slice( 1 )
@@ -73,7 +73,7 @@ export function reducer ( state, { type, payload } ) {
             }
 
             if ( CASES.SQUARE_ROOT_CLICKED ) {
-                if ( state.currentOperand === '0.' ) return { ...state };
+                if ( state.currentOperand === '0.' ) return state;
 
                 return {
                     ...state
@@ -118,18 +118,16 @@ export function reducer ( state, { type, payload } ) {
                 };
             }
 
-        case ACTIONS.CLEAR: return {
-            memory: '0.'
-            , currentOperand: '0.' };
+        case ACTIONS.CLEAR:
+            return {
+                memory: '0.'
+                , currentOperand: '0.'
+            };
 
         case ACTIONS.EVALUATE:
-            if (
-                state.operation == null
-                || state.currentOperand == null
-                || state.previousOperand == null
-            ) return state;
+            if ( CASES.NOT_COMPUTABLE ) return state;
 
-            if ( state.operation === '÷' && state.currentOperand === '0.' ) {
+            if ( CASES.DIVISION_BY_ZERO ) {
                 return {
                     ...state
                     , error: true

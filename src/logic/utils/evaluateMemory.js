@@ -18,7 +18,7 @@ export const evaluateMemory = ( state, action ) => {
                 , operation: '-'
             } );
             break;
-        default: console.log( 'hi' );
+        default: console.error( 'error evaluating memory' );
     }
 
     return result;

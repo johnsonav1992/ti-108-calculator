@@ -12,5 +12,9 @@ export const createStateCases = ( state, payload ) => {
         , PERCENT_CLICKED: payload?.digit === '%'
         , MRC_CLICKED: payload?.digit === 'MRC'
         , M_PLUS_OR_MINUS_CLICKED: payload?.digit === 'M+' || payload?.digit === 'M-'
+        , NOT_COMPUTABLE: state.operation == null
+                            || state.currentOperand == null
+                            || state.previousOperand == null
+        , DIVISION_BY_ZERO: state.operation === '÷' && state.currentOperand === '0.'
     };
 };
