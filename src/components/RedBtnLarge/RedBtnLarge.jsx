@@ -1,10 +1,8 @@
-import { useContext } from 'react';
-
 // Components
 import ButtonDots from '../ButtonDots/ButtonDots';
 
 // Context
-import { calcContext } from '../../context/context';
+import { useCalcContext } from '../../context/context';
 
 // Styles
 import classes from './RedBtnLarge.module.css';
@@ -13,7 +11,7 @@ const RedBtnLarge = ( {
     children
     , action
 } ) => {
-    const { dispatch } = useContext( calcContext );
+    const { dispatch } = useCalcContext();
 
     return (
         <button

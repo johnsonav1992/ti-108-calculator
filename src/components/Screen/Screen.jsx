@@ -1,7 +1,5 @@
-import { useContext } from 'react';
-
 // Context
-import { calcContext } from '../../context/context';
+import { useCalcContext } from '../../context/context';
 
 // Styles
 import classes from './Screen.module.css';
@@ -11,7 +9,7 @@ const Screen = () => {
         currentOperand
         , memory
         , error
-    } = useContext( calcContext );
+    } = useCalcContext();
 
     const isNegative = parseFloat( currentOperand ) < 0;
     const formattedOperand = isNegative ? currentOperand.replace( /^./, '' ) : '';

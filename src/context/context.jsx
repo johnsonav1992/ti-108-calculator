@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import {
     createContext
     , useReducer
@@ -18,20 +19,24 @@ const initState = {
     , error: false
 };
 
-export const calcContext = createContext( initState );
+export const CalcContext = createContext( initState );
 
 const ContextProvider = ( { children } ) => {
     const [ state, dispatch ] = useReducer( reducer, initState );
 
     return (
-        <calcContext.Provider value={ {
+        <CalcContext.Provider value={ {
             ...state
             , dispatch
         } }
         >
             { children }
-        </calcContext.Provider>
+        </CalcContext.Provider>
     );
 };
 
 export default ContextProvider;
+
+export const useCalcContext = () => {
+    return useContext( CalcContext );
+};
