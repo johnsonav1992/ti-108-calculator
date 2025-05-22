@@ -11,7 +11,7 @@ import { createStateCases } from './stateCases';
 export function reducer ( state, { type, payload } ) {
     const CASES = createStateCases( state, payload );
 
-    if ( CASES.NO_CURRENT_OPERAND && payload.digit !== 'ON/C' ) {
+    if ( CASES.NO_CURRENT_OPERAND && payload?.digit !== 'ON/C' ) {
         return handleCalcIsOff( state );
     }
 
