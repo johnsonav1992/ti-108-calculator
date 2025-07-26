@@ -9,10 +9,15 @@ export const handleChooseOperation = ( state, payload ) => {
     }
 
     if ( state.operationChosen ) {
+        const result = evaluate( state );
+
         return {
             ...state
-            , previousOperand: evaluate( state )
-            , currentOperand: evaluate( state )
+            , previousOperand: result
+            , currentOperand: result
+            , operation: payload.operation
+            , operationChosen: true
+            , overwrite: true
         };
     }
 

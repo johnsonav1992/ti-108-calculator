@@ -106,6 +106,7 @@ export function reducer ( state, { type, payload } ) {
                     return {
                         ...state
                         , currentOperand: state.memory
+                        , overwrite: true
                     };
                 }
             }
@@ -121,8 +122,14 @@ export function reducer ( state, { type, payload } ) {
         case ACTIONS.CLEAR:
             return {
                 ...state
-                , memory: '0.'
                 , currentOperand: '0.'
+                , previousOperand: null
+                , operation: null
+                , operationChosen: false
+                , decimalClicked: false
+                , percentClicked: false
+                , overwrite: false
+                , error: false
             };
 
         case ACTIONS.EVALUATE:

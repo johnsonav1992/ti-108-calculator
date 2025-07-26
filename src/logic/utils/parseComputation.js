@@ -10,7 +10,11 @@ export const parseComputation = ( computation ) => {
     }
 
     if ( computation.includes( '.' ) ) {
-        computation = computation.replace( /0+$/, '' ).replace( /\.$/, '' );
+        computation = computation.replace( /0+$/, '' );
+
+        if ( computation.endsWith( '.' ) === false ) {
+            computation = `${ computation }.`;
+        }
     } else {
         computation = `${ computation }.`;
     }
